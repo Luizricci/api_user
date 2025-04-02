@@ -14,9 +14,9 @@ const deleteUsuarios = async (id) => {
     const result = await pool.query("DELETE FROM usuarios WHERE id = $1 RETURNING *", [id]);
 
     if (result.rowCount === 0) {
-        return { error: "Casa não encontrada." };
+        return { error: "Usuário não encontrado." };
     }
-    return { message: "Casa deletada com sucesso." };
+    return { message: "Usuário deletado com sucesso." };
 };
 const updateUsuarios = async (id, data) => {
     const { name, email, password } = data;
