@@ -2,7 +2,7 @@ const PDFDocument = require("pdfkit");
 
 const UserModel = require("../models/UserModel");
 
-const exportWizardPDF = async (req, res)=> {
+const exportUserPDF = async (req, res)=> {
     try {
         const users = await UserModel.getUsuarios();
 
@@ -32,4 +32,4 @@ const exportWizardPDF = async (req, res)=> {
     }
 }
 
-module.exports = {exportWizardPDF}
+module.exports = {exportUserPDF}
