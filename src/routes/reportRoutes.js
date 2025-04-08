@@ -4,7 +4,7 @@ const router = express.Router();
 
 const reportController = require("../controllers/reportControllers");
 
-router.get("/pdf", reportController.exportWizardPDF);
+router.get("/pdf", reportController.exportUserPDF);
 
 module.exports = router;
 

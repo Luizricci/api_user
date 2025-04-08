@@ -25,3 +25,12 @@ INSERT INTO post (title, content, user_id) VALUES
     ('Post 1', 'Conteúdo do post 1', 1),
     ('Post 2', 'Conteúdo do post 2', 2),
     ('Post 3', 'Conteúdo do post 3', 3);
+
+INSERT INTO usuarios (name, email, password) VALUES 
+    ('Maria', 'maria@gmail.com', 'senha123'),
+    ('Ana', 'ana@gmail.com', 'senha456'),
+    ('Pedro', 'pedro@gmail.com', 'senha789'),
+    ('Carla', 'carla@gmail.com', 'senha101'),
+    ('Rafael', 'rafael@gmail.com', 'senha202'),
+    ('Fernanda', 'fernanda@gmail.com', 'senha303'),
+    ('Bruno', 'bruno@gmail.com', 'senha404');
