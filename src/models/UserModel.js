@@ -27,12 +27,12 @@ const deleteUsuarios = async (id) => {
 };
 const updateUsuarios = async (id, data) => {
     const { name, email, password } = data;
-    const result = await pool.query("UPDATE usuarios SET name = $1, email = $2, password = $3 WHERE id = $4 RETURNING *", [name, email, password, id]);
+    const result = await pool.query("UPDATE usuarios SET name = $1, email = $2, password = $3, photo = $4 WHERE id = $5 RETURNING *", [name, email, password, photo, id]);
     return result.rows[0];
 };
 
-const createUsuarios = async (name, email, password) => {
-    const result = await pool.query("INSERT INTO usuarios (name, email, password) VALUES ($1, $2, $3) RETURNING *", [name, email, password]);
+const createUsuarios = async (name, email, password, photo) => {
+    const result = await pool.query("INSERT INTO usuarios (name, email, password, photo) VALUES ($1, $2, $3, $4) RETURNING *", [name, email, password, photo]);
     return result.rows[0];
 };
 
