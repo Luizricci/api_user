@@ -36,3 +36,4 @@ INSERT INTO usuarios (name, email, password) VALUES
     ('Bruno', 'bruno@gmail.com', 'senha404');
 
     ALTER TABLE usuarios ADD COLUMN photo TEXT;
+    ALTER TABLE post ADD COLUMN photo TEXT;

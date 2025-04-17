@@ -1,7 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const postController = require("../controllers/postControllers");
-
+const upload = require("../config/upload")
 
 /**
  * @swagger
@@ -53,15 +53,20 @@ router.get("/:id", postController.getById);
  *           schema:
  *             type: object
  *             properties:
- *               name:
+ *               title:
  *                 type: string
- *               house_id:
+ *               content:
+ *                 type: string
+ *               user_id:
  *                 type: integer
+ *               photo:
+ *                 type: string
+ *                 format: binary
  *     responses:
  *       201:
  *         description: Post criado com sucesso
  */
-router.post("/", postController.createPost);
+router.post("/", upload.single("photo"), postController.createPost);
 /**
  * @swagger
  * /api/posts/{id}:

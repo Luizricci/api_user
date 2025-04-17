@@ -15,8 +15,8 @@ const getPostById = async (id) => {
 
         return result.rows
 }
-const createPost = async (title, content, user_id) => {
-    const result = await pool.query (`INSERT INTO post (title, content, user_id) VALUES ($1, $2, $3) RETURNING *`, [title, content, user_id])
+const createPost = async (title, content, user_id, photo) => {
+    const result = await pool.query (`INSERT INTO post (title, content, user_id, photo) VALUES ($1, $2, $3, $4) RETURNING *`, [title, content, user_id, photo])
     return result.rows[0]
 }
 const editPost = async (id, title, content) => {
