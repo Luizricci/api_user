@@ -59,14 +59,14 @@ router.get("/:id", postController.getById);
  *                 type: string
  *               user_id:
  *                 type: integer
- *               photo:
+ *               photo_post:
  *                 type: string
  *                 format: binary
  *     responses:
  *       201:
  *         description: Post criado com sucesso
  */
-router.post("/", upload.single("photo"), postController.createPost);
+router.post("/", upload.single("photo_post"), postController.createPost);
 /**
  * @swagger
  * /api/posts/{id}:

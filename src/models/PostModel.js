@@ -1,9 +1,17 @@
 const pool = require("../config/database");
 
 const getPosts = async () => {
-    const result = await pool.query (`SELECT post.*, usuarios.name AS usuario_name 
-        FROM post 
-        LEFT JOIN usuarios ON post.user_id = usuarios.id`);
+    const result = await pool.query (
+    `SELECT 
+        post.id,
+        post.title,
+        post.content,
+        post.photo_post,       
+        usuarios.name AS usuario_name,
+        usuarios.photo AS usuario_photo 
+    FROM post 
+    LEFT JOIN usuarios ON post.user_id = usuarios.id;`
+);
         return result.rows
 }
 
@@ -15,8 +23,8 @@ const getPostById = async (id) => {
 
         return result.rows
 }
-const createPost = async (title, content, user_id, photo) => {
-    const result = await pool.query (`INSERT INTO post (title, content, user_id, photo) VALUES ($1, $2, $3, $4) RETURNING *`, [title, content, user_id, photo])
+const createPost = async (title, content, user_id, photo_post) => {
+    const result = await pool.query (`INSERT INTO post (title, content, user_id, photo_post) VALUES ($1, $2, $3, $4) RETURNING *`, [title, content, user_id, photo_post])
     return result.rows[0]
 }
 const editPost = async (id, title, content) => {
